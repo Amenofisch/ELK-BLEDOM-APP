@@ -23,6 +23,7 @@ export default function App() {
         <View style={styles.container}>
             <View style={styles.header}>
                 <Text style={styles.title}>ELK-BLEDOM</Text>
+                <Text style={styles.version}>Version 1.0.0</Text>
             </View>
             <View style={styles.buttonContainer}>
                 {colors.map((color, idx) => (
@@ -42,6 +43,11 @@ const styles = StyleSheet.create({
     title: {
         color: '#fff',
         fontSize: 30,
+        fontWeight: 'bold',
+    },
+    version: {
+        color: '#fff',
+        fontSize: 1,
         fontWeight: 'bold',
     },
     header: {
