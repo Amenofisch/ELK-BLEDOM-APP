@@ -6,6 +6,7 @@ const CustomButton = (props) => {
         <TouchableOpacity style={[
             styles.button, { backgroundColor: props.color.colorhex}
         ]} onPress={() => {makeRequest(props.color.colorname)}}>
+        <Text style={[{color: props.color.colorname == 'weiß' ? '#000' : '#fff'}, styles.buttonText]}>{props.color.colorname}</Text>
         </TouchableOpacity>
     );
 }
@@ -33,8 +34,8 @@ const styles = StyleSheet.create({
         margin: 10,
     },
     buttonText: {
-        color: '#1abc9c',
-        fontSize: 13,
+        color: '#fff',
+        fontSize: 14,
         fontWeight: 'bold',
     },
 });
