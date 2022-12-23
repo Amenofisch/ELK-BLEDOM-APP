@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { useState, useEffect } from 'react';
-import CustomButton from './Button';
+import CustomButton from './Button.js';
 
 export default function App() {
 
@@ -23,14 +23,15 @@ export default function App() {
         <View style={styles.container}>
             <View style={styles.header}>
                 <Text style={styles.title}>ELK-BLEDOM</Text>
-                <Text style={styles.version}>Version 1.0.0</Text>
+                <Text style={styles.subtitle}>by Amenofisch</Text>
+                <Text style={styles.subtitle}>Version 1.0.0</Text>
             </View>
             <View style={styles.buttonContainer}>
                 {colors.map((color, idx) => (
                     <CustomButton key={idx} color={color} />
                 ))}
             </View>
-            <StatusBar style="auto" />
+            <StatusBar style="auto" hidden={true} />
         </View>
     );
 }
@@ -40,24 +41,23 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#7f8c8d',
     },
-    title: {
-        color: '#fff',
-        fontSize: 30,
-        fontWeight: 'bold',
-    },
-    version: {
-        color: '#fff',
-        fontSize: 1,
-        fontWeight: 'bold',
-    },
     header: {
-        paddingTop: 40,
         paddingHorizontal: 20,
         paddingVertical: 20,
         backgroundColor: '#2c3e50',
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 10,
+        borderBottomStartRadius: 20,
+        borderBottomEndRadius: 20,
+    },
+    title: {
+        color: '#fff',
+        fontSize: 30,
+        fontWeight: 'bold',
+    },
+    subtitle: {
+        color: '#fff',
+        fontSize: 14,
     },
     buttonContainer: {
         display: 'flex',

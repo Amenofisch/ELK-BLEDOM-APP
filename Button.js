@@ -1,27 +1,47 @@
 import React from 'react';
-import { Button, TouchableOpacity, StyleSheet, Text } from 'react-native';
+import { useState } from 'react';
+import { TouchableOpacity, StyleSheet, Text, ActivityIndicator, View, ToastAndroid } from 'react-native';
+
 
 const CustomButton = (props) => {
-    return (
-        <TouchableOpacity style={[
-            styles.button, { backgroundColor: props.color.colorhex}
-        ]} onPress={() => {makeRequest(props.color.colorname)}}>
-        <Text style={[{color: props.color.colorname == 'weiß' ? '#000' : '#fff'}, styles.buttonText]}>{props.color.colorname}</Text>
-        </TouchableOpacity>
-    );
-}
 
-function makeRequest(color) {
-    fetch('http://192.168.0.176:5000/color', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            color: color,
-        }),
-    })
-    .then((response) => console.log(response))  
+    const [colorhex, setColorhex] = useState(props.color.colorhex);
+    const [colorname, setColorname] = useState(props.color.colorname);
+
+    const [isLoading, setLoading] = useState(false);
+
+    if (isLoading) {
+        return (
+            <View>
+                <ActivityIndicator style={styles.button} size="large" />
+            </View>
+        );
+    } else {
+        return (
+            <TouchableOpacity style={[styles.button, { backgroundColor: colorhex }]} onPress={() => { makeRequest(colorname) }}>
+                <Text style={[styles.buttonText, { color: ['hellblau', 'grün', 'weiß', 'gelb'].includes(colorname) ? '#000' : '#fff' }]}>{colorname}</Text>
+            </TouchableOpacity>
+        );
+    }
+
+    function makeRequest(color) {
+        setLoading(true);
+        fetch('http://192.168.0.176:5000/color', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                color: color,
+            }),
+        })
+            .then((response) => { 
+                if(response.status !== 200) {
+                    ToastAndroid.show('Fehler beim Senden der Anfrage', ToastAndroid.SHORT);
+                }
+             })
+            .finally(() => setLoading(false));
+    }
 }
 
 const styles = StyleSheet.create({
@@ -34,10 +54,9 @@ const styles = StyleSheet.create({
         margin: 10,
     },
     buttonText: {
-        color: '#fff',
         fontSize: 14,
         fontWeight: 'bold',
-    },
+    }
 });
 
 export default CustomButton;
