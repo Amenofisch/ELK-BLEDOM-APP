@@ -1,2 +1,2 @@
 ## Screenshots
-![Android Screenshot](./assets/Android.png)
+![Android Screenshot](./assets/Android.jpg)
