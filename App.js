@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { useState, useEffect } from 'react';
-import PowerButton from './Components/PowerButton';
-import ColorButton from './Components/ColorButton';
 import config from './Components/config.js';
-import BrightnessSlider from './Components/BrightnessSlider';
-import ColorPickerElement from './Components/ColorPickerElement';
+import PowerButton from './Components/PowerButton.js';
+import BrightnessSlider from './Components/BrightnessSlider.js';
+import ColorPickerElement from './Components/ColorPickerElement.js';
+import ColorButton from './Components/ColorButton.js';
 
 
 export default function App() {
