@@ -4,6 +4,7 @@ import PowerButton from './Components/PowerButton';
 import ColorButton from './Components/ColorButton';
 import config from './Components/config.js';
 import BrightnessSlider from './Components/BrightnessSlider';
+import ColorPickerElement from './Components/ColorPicker';
 
 
 export default function App() {
@@ -34,7 +35,7 @@ export default function App() {
                 </View>
             </View>
             <View style={styles.content}>
-                <View style={styles.buttonContainer}>
+            <View style={styles.buttonContainer}>
                     {colors.map((color, idx) => (
                         <ColorButton key={idx} color={color} />
                     ))}
