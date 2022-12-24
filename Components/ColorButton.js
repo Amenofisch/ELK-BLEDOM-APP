@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { TouchableOpacity, StyleSheet, Text, ActivityIndicator, View, ToastAndroid } from 'react-native';
-import config from './config.json';
+import config from './config.js';
 
 
 const ColorButton = (props) => {
@@ -19,8 +19,8 @@ const ColorButton = (props) => {
         );
     } else {
         return (
-            <TouchableOpacity style={[styles.button, { backgroundColor: colorhex }]} onPress={() => { makeRequest(colorname) }}>
-                <Text style={[styles.buttonText, { color: ['hellblau', 'grün', 'weiß', 'gelb'].includes(colorname) ? '#000' : '#fff' }]}>{colorname}</Text>
+            <TouchableOpacity style={[styles.button, { backgroundColor: colorname === 'orange' ? '#ffa500' : colorhex }]} onPress={() => { makeRequest(colorname) }}>
+                <Text style={[styles.buttonText, { color: ['hellblau', 'grün', 'weiß', 'gelb'].includes(colorname) ? '#000' : '#fff' },]}>{colorname}</Text>
             </TouchableOpacity>
         );
     }
@@ -47,9 +47,9 @@ const ColorButton = (props) => {
 
 const styles = StyleSheet.create({
     button: {
-        width: 80,
-        height: 80,
-        borderRadius: 10,
+        width: 75,
+        height: 75,
+        borderRadius: 100,
         alignItems: 'center',
         justifyContent: 'center',
         margin: 10,

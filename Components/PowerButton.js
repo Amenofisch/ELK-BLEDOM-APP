@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { TouchableOpacity, StyleSheet, Text, ActivityIndicator, View, ToastAndroid } from 'react-native';
-import config from './config.json';
+import config from './config.js';
 
 const PowerButton = (props) => {
     const [isLoading, setLoading] = useState(false);
@@ -42,14 +42,11 @@ const PowerButton = (props) => {
 
 const styles = StyleSheet.create({
     button: {
-        width: 150,
+        width: 75,
         height: 75,
         borderRadius: 10,
         alignItems: 'center',
         justifyContent: 'center',
-        margin: 15,
-        marginTop: 0,
-        marginBottom: 0,
     },
     buttonText: {
         fontSize: 24,

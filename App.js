@@ -3,7 +3,9 @@ import { StyleSheet, Text, View } from 'react-native';
 import { useState, useEffect } from 'react';
 import PowerButton from './Components/PowerButton';
 import ColorButton from './Components/ColorButton';
-import config from './Components/config.json';
+import config from './Components/config.js';
+import BrightnessSlider from './Components/BrightnessSlider';
+
 
 export default function App() {
 
@@ -25,16 +27,19 @@ export default function App() {
             <View style={styles.header}>
                 <Text style={styles.title}>ELK-BLEDOM</Text>
                 <Text style={styles.subtitle}>by Amenofisch</Text>
-                <Text style={styles.subtitle}>Version 1.0.0</Text>
+                <Text style={styles.subtitle}>Version 1.1.0</Text>
                 <View style={styles.controls}>
                     <PowerButton color="#e74c3c" value={false} />
                     <PowerButton color="#2ecc71" value={true} />
+                    <BrightnessSlider />
                 </View>
             </View>
-            <View style={styles.buttonContainer}>
-                {colors.map((color, idx) => (
-                    <ColorButton key={idx} color={color} />
-                ))}
+            <View style={styles.content}>
+                <View style={styles.buttonContainer}>
+                    {colors.map((color, idx) => (
+                        <ColorButton key={idx} color={color} />
+                    ))}
+                </View>
             </View>
             <StatusBar style="auto" hidden={true} />
         </View>
@@ -47,8 +52,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#7f8c8d',
     },
     controls: {
-        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
         flexDirection: 'row',
+        flexWrap: 'wrap',
         justifyContent: 'space-between',
         padding: 20,
     },
@@ -65,13 +72,21 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 30,
         fontWeight: 'bold',
+        textAlign: 'center',
     },
     subtitle: {
         color: '#fff',
         fontSize: 14,
+        textAlign: 'center',
+    },
+    content: {
+        flex: 2,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
     },
     buttonContainer: {
-        display: 'flex',
+        flex: 3,
         flexWrap: 'wrap',
         flexDirection: 'row',
         justifyContent: 'space-between',
