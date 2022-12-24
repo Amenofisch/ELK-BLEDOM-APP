@@ -1,2 +1,2 @@
 ## Screenshots
-<img src="./assets/Android.jpg" width="128"/>
+<img src="./assets/Android.jpg" width="256"/>
