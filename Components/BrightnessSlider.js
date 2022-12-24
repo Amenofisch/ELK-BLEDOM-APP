@@ -25,7 +25,6 @@ const BrightnessSlider = (props) => {
     );
 
     function makeRequest(value) {
-        console.log(value);
         setLoading(true);
         fetch(config.baseUrl + config.brightnessPath, {
             method: 'POST',
