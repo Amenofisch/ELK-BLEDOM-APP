@@ -1,9 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
 import { TouchableOpacity, StyleSheet, Text, ActivityIndicator, View, ToastAndroid } from 'react-native';
+import config from './config.json';
 
 
-const CustomButton = (props) => {
+const ColorButton = (props) => {
 
     const [colorhex, setColorhex] = useState(props.color.colorhex);
     const [colorname, setColorname] = useState(props.color.colorname);
@@ -26,7 +27,7 @@ const CustomButton = (props) => {
 
     function makeRequest(color) {
         setLoading(true);
-        fetch('http://192.168.0.176:5000/color', {
+        fetch(config.baseUrl + config.colorPath, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -35,11 +36,11 @@ const CustomButton = (props) => {
                 color: color,
             }),
         })
-            .then((response) => { 
-                if(response.status !== 200) {
+            .then((response) => {
+                if (response.status !== 200) {
                     ToastAndroid.show('Fehler beim Senden der Anfrage', ToastAndroid.SHORT);
                 }
-             })
+            })
             .finally(() => setLoading(false));
     }
 }
@@ -59,4 +60,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default CustomButton;
+export default ColorButton;

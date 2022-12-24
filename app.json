@@ -21,6 +21,7 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.amenofisch.elkbledom",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
@@ -28,6 +29,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "7d59227f-4e5c-488f-8b2b-e58ad4bf5dd2"
+      }
     }
   }
 }

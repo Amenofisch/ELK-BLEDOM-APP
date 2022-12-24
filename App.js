@@ -1,7 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { useState, useEffect } from 'react';
-import CustomButton from './Button.js';
+import PowerButton from './Components/PowerButton';
+import ColorButton from './Components/ColorButton';
+import config from './Components/config.json';
 
 export default function App() {
 
@@ -9,10 +11,9 @@ export default function App() {
 
     // fetch all colors from the server
     useEffect(() => {
-        fetch('http://pi.amenofisch.dev/color')
+        fetch(config.baseUrl + config.colorPath)
             .then((response) => response.json())
             .then((json) => {
-                console.log(json);
                 setColors(json);
             })
             .catch((error) => console.error(error))
@@ -25,10 +26,14 @@ export default function App() {
                 <Text style={styles.title}>ELK-BLEDOM</Text>
                 <Text style={styles.subtitle}>by Amenofisch</Text>
                 <Text style={styles.subtitle}>Version 1.0.0</Text>
+                <View style={styles.controls}>
+                    <PowerButton color="#e74c3c" value={false} />
+                    <PowerButton color="#2ecc71" value={true} />
+                </View>
             </View>
             <View style={styles.buttonContainer}>
                 {colors.map((color, idx) => (
-                    <CustomButton key={idx} color={color} />
+                    <ColorButton key={idx} color={color} />
                 ))}
             </View>
             <StatusBar style="auto" hidden={true} />
@@ -40,6 +45,12 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#7f8c8d',
+    },
+    controls: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        padding: 20,
     },
     header: {
         paddingHorizontal: 20,
