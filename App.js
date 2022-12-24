@@ -1,11 +1,12 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { useState, useEffect } from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
 import config from './Components/config.js';
 import PowerButton from './Components/PowerButton.js';
 import BrightnessSlider from './Components/BrightnessSlider.js';
 import ColorPickerElement from './Components/ColorPickerElement.js';
 import ColorButton from './Components/ColorButton.js';
-
 
 export default function App() {
 
@@ -23,23 +24,25 @@ export default function App() {
 
 
     return (
-        <View style={styles.container}>
-            <View style={styles.header}>
-                <Text style={styles.title}>ELK-BLEDOM</Text>
-                <Text style={styles.subtitle}>by Amenofisch</Text>
-                <Text style={styles.subtitle}>Version 1.1.0</Text>
-                <View style={styles.controls}>
-                    <PowerButton color="#e74c3c" value={false} />
-                    <BrightnessSlider />
-                    <PowerButton color="#2ecc71" value={true} />
+        <SafeAreaProvider>
+            <View style={styles.container}>
+                <View style={styles.header}>
+                    <Text style={styles.title}>ELK-BLEDOM</Text>
+                    <Text style={styles.subtitle}>by Amenofisch</Text>
+                    <Text style={styles.subtitle}>Version 1.1.0</Text>
+                    <View style={styles.controls}>
+                        <PowerButton color="#e74c3c" value={false} />
+                        <BrightnessSlider />
+                        <PowerButton color="#2ecc71" value={true} />
+                    </View>
+                </View>
+                <View style={styles.content}>
+                    <View style={styles.buttonContainer}>
+                        <ColorPickerElement />
+                    </View>
                 </View>
             </View>
-            <View style={styles.content}>
-                <View style={styles.buttonContainer}>
-                    <ColorPickerElement />
-                </View>
-            </View>
-        </View>
+        </SafeAreaProvider>
     );
 }
 
