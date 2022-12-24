@@ -2,6 +2,8 @@ import React from 'react';
 import { useState } from 'react';
 import { TouchableOpacity, StyleSheet, Text, ActivityIndicator, View, ToastAndroid } from 'react-native';
 import config from './config.js';
+import * as Haptics from 'expo-haptics';
+
 
 
 const ColorButton = (props) => {
@@ -19,7 +21,7 @@ const ColorButton = (props) => {
         );
     } else {
         return (
-            <TouchableOpacity style={[styles.button, { backgroundColor: colorname === 'orange' ? '#ffa500' : colorhex }]} onPress={() => { makeRequest(colorname) }}>
+            <TouchableOpacity style={[styles.button, { backgroundColor: colorname === 'orange' ? '#ffa500' : colorhex }]} onPress={() => { makeRequest(colorname), Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light) }}>
                 <Text style={[styles.buttonText, { color: ['hellblau', 'grün', 'weiß', 'gelb'].includes(colorname) ? '#000' : '#fff' },]}>{colorname}</Text>
             </TouchableOpacity>
         );

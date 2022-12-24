@@ -2,6 +2,8 @@ import React from 'react';
 import { useState } from 'react';
 import { TouchableOpacity, StyleSheet, Text, ActivityIndicator, View, ToastAndroid } from 'react-native';
 import config from './config.js';
+import * as Haptics from 'expo-haptics';
+
 
 const PowerButton = (props) => {
     const [isLoading, setLoading] = useState(false);
@@ -14,7 +16,7 @@ const PowerButton = (props) => {
         );
     } else {
         return (
-            <TouchableOpacity style={[styles.button, { backgroundColor: props.color }]} onPress={() => { makeRequest(props.value) }}>
+            <TouchableOpacity style={[styles.button, { backgroundColor: props.color }]} onPress={() => { makeRequest(props.value), Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light) }}>
                 <Text style={styles.buttonText}>{props.value ? 'ON' : 'OFF'}</Text>
             </TouchableOpacity>
         );
