@@ -4,7 +4,6 @@ import { View, ToastAndroid, Text } from 'react-native';
 import config from './config.js';
 import bulbIcon from '../assets/bulb-icon.png';
 
-
 const BrightnessSlider = (props) => {
     const [sliderBrightness, setSliderBrightness] = useState(100);
     const [isLoading, setLoading] = useState(false);

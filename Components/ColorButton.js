@@ -4,13 +4,9 @@ import { TouchableOpacity, StyleSheet, Text, ActivityIndicator, View, ToastAndro
 import config from './config.js';
 import * as Haptics from 'expo-haptics';
 
-
-
 const ColorButton = (props) => {
-
     const [colorhex, setColorhex] = useState(props.color.colorhex);
     const [colorname, setColorname] = useState(props.color.colorname);
-
     const [isLoading, setLoading] = useState(false);
 
     if (isLoading) {
