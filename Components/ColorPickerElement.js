@@ -16,7 +16,7 @@ const ColorPickerElement = () => {
             thumbStyle={{ height: 30, width: 30, borderRadius: 30 }}
             swatches={true}
             initalColor={color}
-            sliderHidden={true}
+            sliderHidden={false}
             onColorChange={color => setColor(color)}
             onColorChangeComplete={c => makeRequest(c.replace('#', ''))}
         />
