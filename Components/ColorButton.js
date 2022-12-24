@@ -57,6 +57,9 @@ const styles = StyleSheet.create({
     buttonText: {
         fontSize: 14,
         fontWeight: 'bold',
+        textShadowColor: 'rgba(0, 0, 0, 0.75)',
+        textShadowOffset: { width: 0, height: 0 },
+        textShadowRadius: 5,
     }
 });
 

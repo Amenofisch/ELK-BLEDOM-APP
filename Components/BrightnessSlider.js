@@ -10,7 +10,7 @@ const BrightnessSlider = (props) => {
 
     return (
         <View style={[{paddingTop: 25}]}>
-            <Slider style={{ width: 300, height: 15 }} 
+            <Slider style={{ width: 200, height: 15 }} 
                 minimumValue={0}
                 maximumValue={100}
                 minimumTrackTintColor="#FFFFFF"

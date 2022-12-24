@@ -49,8 +49,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     buttonText: {
-        fontSize: 24,
+        fontSize: 32,
         fontWeight: 'bold',
+        textShadowColor: 'rgba(0, 0, 0, 0.75)',
+        textShadowOffset: { width: 0, height: 0 },
+        textShadowRadius: 10,
     }
 });
 

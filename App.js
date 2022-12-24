@@ -30,8 +30,8 @@ export default function App() {
                 <Text style={styles.subtitle}>Version 1.1.0</Text>
                 <View style={styles.controls}>
                     <PowerButton color="#e74c3c" value={false} />
-                    <PowerButton color="#2ecc71" value={true} />
                     <BrightnessSlider />
+                    <PowerButton color="#2ecc71" value={true} />
                 </View>
             </View>
             <View style={styles.content}>
@@ -55,7 +55,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row',
-        flexWrap: 'wrap',
         justifyContent: 'space-between',
         padding: 20,
     },
@@ -83,13 +82,13 @@ const styles = StyleSheet.create({
         flex: 2,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center',
+        
     },
     buttonContainer: {
         flex: 3,
         flexWrap: 'wrap',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        padding: 20,
+        padding: 10,
     }
 });
