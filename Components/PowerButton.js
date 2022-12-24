@@ -42,8 +42,8 @@ const PowerButton = (props) => {
 
 const styles = StyleSheet.create({
     button: {
-        width: 75,
-        height: 75,
+        width: 80,
+        height: 50,
         borderRadius: 10,
         alignItems: 'center',
         justifyContent: 'center',

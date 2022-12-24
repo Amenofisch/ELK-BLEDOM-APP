@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { useState, useEffect } from 'react';
 import PowerButton from './Components/PowerButton';
@@ -41,13 +40,13 @@ export default function App() {
                     ))}
                 </View>
             </View>
-            <StatusBar style="auto" hidden={true} />
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
+        paddingTop: 30,
         flex: 1,
         backgroundColor: '#7f8c8d',
     },
@@ -59,13 +58,12 @@ const styles = StyleSheet.create({
         padding: 20,
     },
     header: {
-        paddingHorizontal: 20,
-        paddingVertical: 20,
+        margin: 10,
+        paddingVertical: 10,
         backgroundColor: '#2c3e50',
         alignItems: 'center',
         justifyContent: 'center',
-        borderBottomStartRadius: 20,
-        borderBottomEndRadius: 20,
+        borderRadius: 20,
     },
     title: {
         color: '#fff',
@@ -82,7 +80,7 @@ const styles = StyleSheet.create({
         flex: 2,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        
+
     },
     buttonContainer: {
         flex: 3,
@@ -90,5 +88,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         padding: 10,
+        backgroundColor: '#2c3e50',
+        borderRadius: 20,
+        margin: 10,
+        maxHeight: 310,
     }
 });
