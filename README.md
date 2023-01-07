@@ -1,4 +1,4 @@
-# This project will be soon deprecated as it's "parent" repo (ELK-BLEDOM) has been replaced by [ELK-BLEDOM-RECODE](https://github.com/Amenofisch/ELK-BLEDOM-RECODE). There will be a recoded version of this project of mine as well.
+# This project is deprecated and replaced by [ELK-BLEDOM-RECODE-APP](https://github.com/Amenofisch/ELK-BLEDOM-RECODE-APP).
 
 # ELK-BLEDOM-APP
 This is an app for my other repository called ELK-BLEDOM
